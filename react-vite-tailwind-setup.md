@@ -36,6 +36,46 @@ npx tailwindcss init -p
 ```
 This creates `tailwind.config.js` and `postcss.config.js` files.
 
+**Common Error Fix:**
+If the command fails, try these alternatives:
+
+**Option A:** Run separately
+```bash
+npx tailwindcss init
+```
+Then manually create `postcss.config.js`:
+```javascript
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+```
+
+**Option B:** Manual creation
+Create `tailwind.config.js`:
+```javascript
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+Create `postcss.config.js`:
+```javascript
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+```
+
 ### 6. Configure Tailwind CSS
 Update `tailwind.config.js`:
 ```javascript
